@@ -4,17 +4,18 @@ import fireIcon from "./assets/fireIcon.svg";
 
 function App() {
   return (
-    <main className="container--default">
+    <div className="container--default">
       <header className="flex">
-        <Logo />
-        <a href="#">Fitness Tracker</a>
+        <Logo color="#b3cfb3;" />
       </header>
-      <DisplayCard
-        title="Today's workouts"
-        details="Keep going!"
-        icon_src={fireIcon}
-      />
-    </main>
+      <main>
+        <DisplayCard
+          title="Today's workouts"
+          details="Keep going!"
+          icon_src={fireIcon}
+        />
+      </main>
+    </div>
   );
 }
 

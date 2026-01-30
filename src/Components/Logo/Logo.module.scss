@@ -1,0 +1,12 @@
+@use "../../style/variables" as *;
+@use "../../style/mixins";
+
+.logo {
+  @include mixins.flex();
+  gap: 0.8em;
+
+  &__text {
+    text-decoration: none;
+    color: $clr-text;
+  }
+}

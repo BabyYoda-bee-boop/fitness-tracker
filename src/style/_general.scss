@@ -7,6 +7,7 @@ img {
 }
 body {
   font-family: $ff-primary;
+  background-color: $clr-bg;
 
   .container--default {
     @include mixins.container(60em);

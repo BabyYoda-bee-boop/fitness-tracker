@@ -1,0 +1,32 @@
+// Colors:
+@use "sass:color";
+
+$clr-bg: #202020;
+$clr-bg-card: rgb(179, 207, 179);
+$clr-outline: #373737;
+$clr-text: #bababa;
+$clr-uncheck-text: color.change($clr-text, $alpha: 0.5);
+$clr-add: #626ed9;
+$clr-done: #ecbb5b;
+$clr-undone: color.change($clr-done, $alpha: 0.5);
+$clr-remove: #c64444;
+$clr-remove-uncheck: color.change($clr-remove, $alpha: 0.5);
+$clr-uncheck-bg: rgb(55 55 55 / 0.5);
+
+// Font sizes:
+$fs-700: clamp(1.75rem, 1.4631rem + 1.3115vw, 2rem);
+$fs-600: clamp(1.25rem, 1.1426rem + 0.4918vw, 1.25rem);
+$fs-400: clamp(1rem, 0.9426rem + 0.2623vw, 1rem);
+$fs-300: clamp(0.875rem, 0.8463rem + 0.1311vw, 0.9375rem);
+
+// Font family:
+$ff-primary: sans-serif;
+$ff-secondary: sans-serif;
+
+//weights:
+$fw-semiBold: 600;
+$fw-regular: 400;
+
+// radii
+
+$radius-regular: 0.6em;

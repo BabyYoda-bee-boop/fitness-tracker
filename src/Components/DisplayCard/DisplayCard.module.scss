@@ -1,0 +1,22 @@
+@use "../../style/variables" as *;
+@use "../../style/mixins";
+
+.displayCard {
+  border: 1px $clr-outline solid;
+  border-radius: $radius-regular;
+  background-color: $clr-bg-card;
+  padding: 1.5em;
+  max-width: 16rem;
+  aspect-ratio: (16/9);
+
+  &__heading {
+    @include mixins.flex {
+      gap: 1em;
+    }
+  }
+
+  &__icon {
+    width: 25px;
+    aspect-ratio: 1;
+  }
+}

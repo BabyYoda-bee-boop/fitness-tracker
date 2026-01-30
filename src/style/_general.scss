@@ -1,0 +1,17 @@
+@use "./variables" as *;
+@use "mixins";
+
+img {
+  max-width: 100%;
+  display: block;
+}
+body {
+  font-family: $ff-primary;
+
+  .container--default {
+    @include mixins.container(60em);
+  }
+  .flex {
+    @include mixins.flex;
+  }
+}

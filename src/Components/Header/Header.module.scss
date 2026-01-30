@@ -1,0 +1,32 @@
+@use "../../style/variables" as v;
+@use "../../style/mixins" as *;
+
+.header {
+  nav {
+    @include flex() {
+      gap: 1em;
+    }
+
+    a {
+      text-decoration: none;
+      color: v.$clr-text;
+
+      &:hover,
+      &:focus {
+        outline: 2px solid v.$clr-focus;
+        border-radius: 0.25em;
+        outline-offset: 2px;
+      }
+    }
+  }
+
+  .nav__links {
+    @include flex() {
+      gap: 1em;
+    }
+
+    li {
+      list-style: none;
+    }
+  }
+}

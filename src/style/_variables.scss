@@ -2,15 +2,15 @@
 @use "sass:color";
 
 $clr-bg: #272424;
-$clr-bg-card: #b3cfb3;
-$clr-outline: #373737;
 $clr-text: #bababa;
+$clr-outline: #373737;
+$clr-bg-card: #b3cfb3;
+$clr-link-outline: color.scale($clr-text, $lightness: -10%);
 $clr-uncheck-text: color.change($clr-text, $alpha: 0.5);
 $clr-add: #626ed9;
 $clr-done: #ecbb5b;
 $clr-undone: color.change($clr-done, $alpha: 0.5);
-$clr-remove: #c64444;
-$clr-remove-uncheck: color.change($clr-remove, $alpha: 0.5);
+$clr-focus: #c64444;
 $clr-uncheck-bg: rgb(55 55 55 / 0.5);
 
 // Font sizes:

@@ -1,15 +1,13 @@
 import DisplayCard from "./Components/DisplayCard/DisplayCard";
-import Logo from "./Components/Logo/Logo";
 import fireIcon from "./assets/fireIcon.svg";
 import zigArrowIcon from "./assets/zigArrowIcon.svg";
 import bullseyeIcon from "./assets/bullseyeIcon.svg";
+import Header from "./Components/Header/Header";
 
 function App() {
   return (
     <div className="container--default">
-      <header className="flex">
-        <Logo color="#b3cfb3;" />
-      </header>
+      <Header />
       <main>
         <section className="flex--overview">
           <DisplayCard

@@ -14,5 +14,14 @@ body {
   }
   .flex {
     @include mixins.flex;
+
+    &--overview {
+      @include mixins.flex(row, center) {
+        gap: 2rem;
+      }
+      & > * {
+        flex: 1;
+      }
+    }
   }
 }

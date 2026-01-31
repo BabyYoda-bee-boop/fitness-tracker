@@ -1,0 +1,13 @@
+@use "../../style/variables" as *;
+@use "../../style/mixins";
+
+.section--overview {
+  @include mixins.flex() {
+    & > * {
+      flex-basis: 20em;
+    }
+    @include mixins.flex($dir: row, $align: stretch) {
+      gap: 2rem;
+    }
+  }
+}

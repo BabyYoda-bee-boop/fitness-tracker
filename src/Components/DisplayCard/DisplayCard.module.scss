@@ -2,21 +2,26 @@
 @use "../../style/mixins";
 
 .displayCard {
+  @include mixins.flex($dir: column, $align: flex-start);
   border: 1px $clr-outline solid;
   border-radius: $radius-regular;
   background-color: $clr-bg-card;
   padding: 1.5em;
-  max-width: 16rem;
   aspect-ratio: calc(16 / 9);
 
   &__heading {
-    @include mixins.flex {
+    @include mixins.flex() {
       gap: 1em;
     }
+    width: 100%;
   }
 
   &__icon {
     width: 25px;
     aspect-ratio: 1;
+  }
+  &__output {
+    font-weight: $fw-semiBold;
+    font-size: $fs-700;
   }
 }

@@ -1,10 +1,24 @@
 @use "./variables" as *;
 @use "mixins";
 
+*,
+::before,
+::after {
+  box-sizing: border-box;
+}
 img {
   max-width: 100%;
   display: block;
 }
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+}
+
 body {
   font-family: $ff-primary;
   background-color: $clr-bg;
@@ -14,14 +28,5 @@ body {
   }
   .flex {
     @include mixins.flex;
-
-    &--overview {
-      @include mixins.flex(row, center) {
-        gap: 2rem;
-      }
-      & > * {
-        flex: 1;
-      }
-    }
   }
 }

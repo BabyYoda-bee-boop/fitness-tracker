@@ -6,6 +6,7 @@ const DisplayCard = ({
   variant = "",
   details = "details",
   icon_src,
+  output,
 }) => {
   const displayCardClasses = [
     styles.displayCard,
@@ -20,7 +21,7 @@ const DisplayCard = ({
         <h2 className={styles.displayCard__title}>{title}</h2>
         <img className={styles.displayCard__icon} src={icon_src} alt="" />
       </div>
-      <p className={styles.displayCard__count}>Temp</p>
+      <p className={styles.displayCard__output}>{output}</p>
       <p className={styles.displayCard__details}>{details}</p>
     </div>
   );

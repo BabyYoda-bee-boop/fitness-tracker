@@ -5,9 +5,9 @@
   flex-direction: column;
   align-items: flex-start;
   gap: 0.5rem;
-  border: 1px v.$clr-accent-border solid;
+  border: 1px v.$clr-bg-card-outline solid;
   border-radius: v.$radius-regular;
-  background-color: v.$clr-accent;
+  background-color: v.$clr-bg-card;
 
   > * {
     margin: 0.5rem;

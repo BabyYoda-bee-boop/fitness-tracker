@@ -12,6 +12,11 @@ import WorkoutCards from "./Components/AddWorkoutCard/WorkoutCards";
 import SelectExercise from "./Components/SelectExercise/SelectExercise";
 
 function App() {
+  const [selectedExercise, setSelectedExercise] = useState({});
+  const handleSelectedExercise = (muscleGroup, exercise) => {
+    setSelectedExercise({ [muscleGroup]: exercise });
+  };
+
   return (
     <div className="container--default">
       <Header />
@@ -52,6 +57,7 @@ function App() {
                 "Bent-Over Barbell Row",
                 "Dips",
               ]}
+              handleSelect={handleSelectedExercise}
             />
             <SelectExercise
               muscleGroup="Lower Body"
@@ -63,6 +69,7 @@ function App() {
                 "Good Mornings",
                 "Calf Rises",
               ]}
+              handleSelect={handleSelectedExercise}
             />
             <SelectExercise
               muscleGroup="Core"
@@ -74,6 +81,7 @@ function App() {
                 "Mountain Climbers",
                 "V-Ups",
               ]}
+              handleSelect={handleSelectedExercise}
             />
           </WorkoutCards>
         </Section>

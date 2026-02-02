@@ -8,6 +8,7 @@ $clr-accent-border: rgb(68 217 150);
 $clr-accent: color.change($clr-accent-border, $alpha: 0.5);
 $clr-outline: #373737;
 $clr-bg-card: #b3cfb3;
+$clr-bg-card-outline: color.adjust($clr-bg-card, $blackness: 6%);
 $clr-link-outline: color.scale($clr-text, $lightness: -10%);
 $clr-uncheck-text: color.change($clr-text, $alpha: 0.5);
 $clr-add: #626ed9;

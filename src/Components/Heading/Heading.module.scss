@@ -5,6 +5,10 @@
   font-size: v.$fs-800;
   color: v.$clr-text;
 
+  &--h3 {
+    color: v.$clr-outline;
+  }
+
   span {
     font-size: v.$fs-600;
     vertical-align: middle;

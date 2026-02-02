@@ -3,10 +3,17 @@ import styles from "./SelectExercise.module.scss";
 import Button from "../Button/Button";
 import Heading from "../Heading/Heading";
 
-const SelectExercise = ({ muscleGroup = "", options = [] }) => {
-  const [selectedValue, setSelectedValue] = useState("");
+const SelectExercise = ({ handleSelect, muscleGroup = "", options = [] }) => {
+  const [localSelection, setLocalSelection] = useState("");
+
   const handleChange = (e) => {
-    setSelectedValue(e.target.value);
+    setLocalSelection(e.target.value);
+  };
+
+  const handleConfirm = () => {
+    if (typeof handleSelect === "function" && localSelection) {
+      handleSelect(muscleGroup, localSelection);
+    }
   };
 
   return (
@@ -36,6 +43,7 @@ const SelectExercise = ({ muscleGroup = "", options = [] }) => {
         variant={styles.selectExercise}
         type="button"
         text="Confirm selection"
+        onClick={handleConfirm}
       />
     </div>
   );

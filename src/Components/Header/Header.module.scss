@@ -2,6 +2,8 @@
 @use "../../style/mixins" as *;
 
 .header {
+  margin-block: 1rem;
+
   nav {
     @include flex() {
       gap: 1em;

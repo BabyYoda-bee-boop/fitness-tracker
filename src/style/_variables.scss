@@ -3,6 +3,9 @@
 
 $clr-bg: #272424;
 $clr-text: #bababa;
+$clr-heading2: #d8c21c;
+$clr-accent-border: rgb(68 217 150);
+$clr-accent: color.change($clr-accent-border, $alpha: 0.5);
 $clr-outline: #373737;
 $clr-bg-card: #b3cfb3;
 $clr-link-outline: color.scale($clr-text, $lightness: -10%);
@@ -14,6 +17,7 @@ $clr-focus: #c64444;
 $clr-uncheck-bg: rgb(55 55 55 / 0.5);
 
 // Font sizes:
+$fs-800: clamp(2.5rem, 2.2963rem + 0.9081vw, 3rem);
 $fs-700: clamp(1.75rem, 1.4631rem + 1.3115vw, 2rem);
 $fs-600: clamp(1.25rem, 1.1426rem + 0.4918vw, 1.25rem);
 $fs-400: clamp(1rem, 0.9426rem + 0.2623vw, 1rem);

@@ -1,13 +1,20 @@
 @use "../../style/variables" as *;
 @use "../../style/mixins";
 
-.section--overview {
-  @include mixins.flex() {
-    & > * {
-      flex-basis: 20em;
-    }
-    @include mixins.flex($dir: row, $align: stretch) {
-      gap: 2rem;
+.section {
+  margin-block: 2rem;
+  &:first-of-type {
+    margin-top: 0;
+  }
+
+  &__overview {
+    @include mixins.flex() {
+      & > * {
+        flex-basis: 20em;
+      }
+      @include mixins.flex($dir: row, $align: stretch) {
+        gap: 2rem;
+      }
     }
   }
 }

@@ -4,7 +4,7 @@ import styles from "./Section.module.scss";
 const Section = ({ children, variant = "" }) => {
   const sectionClasses = [
     styles.section,
-    variant && styles[`section--${variant}`],
+    variant && styles[`section__${variant}`],
   ]
     .filter(Boolean)
     .join(" ");

@@ -1,0 +1,14 @@
+@use "../../style/variables" as v;
+
+.input {
+  color: v.$clr-text;
+  font-size: v.$fs-600;
+  border: 1px v.$clr-outline solid;
+  border-radius: v.$radius-regular;
+  background-color: v.$clr-bg;
+  padding: 1em;
+  min-width: 8ch;
+  &::placeholder {
+    color: v.$clr-text;
+  }
+}

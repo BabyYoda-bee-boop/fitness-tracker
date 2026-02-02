@@ -1,0 +1,8 @@
+@use "../../style/variables" as v;
+@use "../../style/mixins";
+
+.form {
+  @include mixins.flex() {
+    gap: 1em;
+  }
+}

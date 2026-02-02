@@ -1,0 +1,19 @@
+@use "../../style/variables" as v;
+@use "../../style/mixins";
+
+.btn {
+  color: #333;
+  border: none;
+  border-radius: v.$radius-regular;
+  padding: 0.8em;
+  margin-block: 1.5em;
+
+  &:hover {
+    cursor: pointer;
+  }
+
+  &--add {
+    font-size: v.$fs-600;
+    background-color: v.$clr-add;
+  }
+}

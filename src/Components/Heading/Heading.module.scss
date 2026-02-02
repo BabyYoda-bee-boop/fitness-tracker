@@ -1,0 +1,16 @@
+@use "../../style/variables" as v;
+
+.heading {
+  font-weight: v.$fw-semiBold;
+  font-size: v.$fs-800;
+  color: v.$clr-text;
+
+  span {
+    font-size: v.$fs-600;
+    vertical-align: middle;
+  }
+
+  &--h3 {
+    font-size: v.$fs-600;
+  }
+}

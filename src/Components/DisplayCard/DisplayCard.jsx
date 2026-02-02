@@ -16,14 +16,14 @@ const DisplayCard = ({
     .join(" ");
 
   return (
-    <div className={displayCardClasses}>
+    <article className={displayCardClasses}>
       <div className={styles.displayCard__heading}>
         <h2 className={styles.displayCard__title}>{title}</h2>
         <img className={styles.displayCard__icon} src={icon_src} alt="" />
       </div>
       <p className={styles.displayCard__output}>{output}</p>
       <p className={styles.displayCard__details}>{details}</p>
-    </div>
+    </article>
   );
 };
 

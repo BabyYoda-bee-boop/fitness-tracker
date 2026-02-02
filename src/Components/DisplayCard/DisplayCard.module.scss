@@ -8,6 +8,7 @@
   background-color: $clr-bg-card;
   padding: 1.5em;
   aspect-ratio: calc(16 / 9);
+  color: $clr-outline;
 
   &__heading {
     @include mixins.flex() {

@@ -1,0 +1,28 @@
+{
+  "exercises": {
+    "Upper Body": [
+      "Bench Press",
+      "Pull-Ups / Chin-Ups",
+      "Overhead Press",
+      "Push-Ups",
+      "Bent-Over Barbell Row",
+      "Dips"
+    ],
+    "Lower Body": [
+      "Squats",
+      "Deadlifts",
+      "Lunges",
+      "Hip Thrusts / Glute Bridges",
+      "Good Mornings",
+      "Calf Raises"
+    ],
+    "Core": [
+      "Crunches",
+      "Reverse Crunches",
+      "Russian Twists",
+      "Plank",
+      "Mountain Climbers",
+      "V-Ups"
+    ]
+  }
+}

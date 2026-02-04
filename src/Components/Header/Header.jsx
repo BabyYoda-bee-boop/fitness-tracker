@@ -12,7 +12,7 @@ const Header = () => {
             <a href="#">Dashboard</a>
           </li>
           <li>
-            <a href="#">Add workout</a>
+            <a href="#">Log workout</a>
           </li>
           <li>
             <a href="#">My logbook</a>

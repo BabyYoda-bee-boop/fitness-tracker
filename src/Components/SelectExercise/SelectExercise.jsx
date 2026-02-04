@@ -15,6 +15,7 @@ const SelectExercise = ({ handleSelect, muscleGroup = "", options = [] }) => {
       handleSelect(muscleGroup, localSelection);
     }
   };
+  const defaultOptionKey = crypto.randomUUID();
 
   return (
     <div
@@ -29,8 +30,13 @@ const SelectExercise = ({ handleSelect, muscleGroup = "", options = [] }) => {
       <label className="visually-hidden" htmlFor={muscleGroup}>
         {muscleGroup}
       </label>
-      <select onChange={handleChange} name={muscleGroup} id={muscleGroup}>
-        <option disabled defaultValue="">
+      <select
+        value={localSelection}
+        onChange={handleChange}
+        name={muscleGroup}
+        id={muscleGroup}
+      >
+        <option key={defaultOptionKey} disabled value="">
           Select an exercise
         </option>
         {options.map((option, i) => (

@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import DisplayCard from "./Components/DisplayCard/DisplayCard";
 import fireIcon from "./assets/fireIcon.svg";
 import zigArrowIcon from "./assets/zigArrowIcon.svg";
@@ -45,7 +45,7 @@ function App() {
           />
         </Section>
         <Section variant="todays_workouts">
-          <Heading level="2" title="Today's workouts" span="Add new workout" />
+          <Heading level="2" title="Today's workouts" span="Log new workout" />
           <WorkoutCards>
             <SelectExercise
               muscleGroup="Upper Body"

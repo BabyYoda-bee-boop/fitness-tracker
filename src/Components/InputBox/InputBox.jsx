@@ -9,6 +9,8 @@ const InputBox = ({
   id,
   className = "",
   placeholder = "",
+  min = 0,
+  step,
 }) => {
   const inputClasses = [styles.input, className].filter(Boolean).join(" ");
 
@@ -27,6 +29,8 @@ const InputBox = ({
       id={id}
       value={value}
       placeholder={placeholder}
+      min={min}
+      step={step}
     />
   );
 };

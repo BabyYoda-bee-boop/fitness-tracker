@@ -32,67 +32,78 @@ const AddExercise = ({ selectedExercise, handleWorkout }) => {
   };
 
   return (
-    <form onSubmit={handleSubmit} className={styles.addExercise}>
+    <>
       <h3>
         {Object.keys(selectedExercise).length > 0
           ? `${Object.values(selectedExercise)[0]}`
           : "Select an exercise"}
       </h3>
-      {Object.keys(selectedExercise).length > 0 && (
-        <>
-          <label className="visually-hidden" htmlFor="sets">
-            Sets
-          </label>
-          <InputBox
-            type="number"
-            id="sets"
-            name="sets"
-            placeholder="Sets"
-            value={sets}
-            onChange={(e) => setSets(e)}
-            required
-          />
+      <form onSubmit={handleSubmit} className={styles.addExercise}>
+        {Object.keys(selectedExercise).length > 0 && (
+          <>
+            <label className="visually-hidden" htmlFor="sets">
+              Sets
+            </label>
+            <InputBox
+              type="number"
+              id="sets"
+              name="sets"
+              placeholder="Sets"
+              value={sets}
+              onChange={(e) => setSets(e)}
+              required
+            />
 
-          <label className="visually-hidden" htmlFor="reps">
-            Repetitions
-          </label>
-          <InputBox
-            type="number"
-            id="reps"
-            name="reps"
-            placeholder="Repetitions"
-            value={reps}
-            onChange={(e) => setReps(e)}
-            required
-          />
+            <label className="visually-hidden" htmlFor="reps">
+              Repetitions
+            </label>
+            <InputBox
+              type="number"
+              id="reps"
+              name="reps"
+              placeholder="Repetitions"
+              value={reps}
+              onChange={(e) => setReps(e)}
+              required
+            />
 
-          <label htmlFor="weight">Bodyweight Exercise</label>
-          <input
-            type="checkbox"
-            id="bodyweight"
-            checked={isBodyweight}
-            onChange={(e) => setIsBodyweight(e.target.value)}
-          />
-          {!isBodyweight && (
-            <>
-              <label className="visually-hidden" htmlFor="weight">
-                Weight
-              </label>
-              <InputBox
-                type="number"
-                id="weight"
-                name="weight"
-                placeholder="Weight"
-                value={weight}
-                onChange={(e) => setWeight(e)}
-                required={!isBodyweight}
-              />
-            </>
-          )}
-          <Button variant="addExercise" type="submit" text="Log Workout" />
-        </>
-      )}
-    </form>
+            <div className={styles.addExercise__weightSection}>
+              {!isBodyweight && (
+                <>
+                  <label className="visually-hidden" htmlFor="weight">
+                    Weight
+                  </label>
+                  <InputBox
+                    type="number"
+                    id="weight"
+                    name="weight"
+                    placeholder="Weight"
+                    value={weight}
+                    onChange={(e) => setWeight(e)}
+                    required={!isBodyweight}
+                  />
+                </>
+              )}
+              <div className={styles.addExercise__bodyweight}>
+                <input
+                  type="checkbox"
+                  id="bodyweight"
+                  checked={isBodyweight}
+                  onChange={(e) => setIsBodyweight(!isBodyweight)}
+                />
+                <label htmlFor="weight">Bodyweight Exercise</label>
+              </div>
+            </div>
+            <Button
+              variant="submitExercise"
+              className={styles.submitExercise}
+              type="submit"
+              text="Log Workout"
+            />
+          </>
+        )}
+      </form>
+    </>
   );
 };
 

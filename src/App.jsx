@@ -6,21 +6,74 @@ import bullseyeIcon from "./assets/bullseyeIcon.svg";
 import Header from "./Components/Header/Header";
 import Section from "./Components/Section/Section";
 import Heading from "./Components/Heading/Heading";
-import Button from "./Components/Button/Button";
-import Form from "./Components/Form/Form";
 import WorkoutCards from "./Components/AddWorkoutCard/WorkoutCards";
 import SelectExercise from "./Components/SelectExercise/SelectExercise";
+import AddExercise from "./Components/AddExercise/AddExercise";
 
 function App() {
+  const [exercises, setExercises] = useState({});
   const [selectedExercise, setSelectedExercise] = useState({});
   const handleSelectedExercise = (muscleGroup, exercise) => {
     setSelectedExercise({ [muscleGroup]: exercise });
+  };
+  const [isLoading, setIsLoading] = useState(true);
+  const [error, setError] = useState(null);
+  const API_URL = "http://localhost:3000";
+
+  useEffect(() => {
+    setIsLoading(true);
+    setError(null);
+
+    async function fetchData() {
+      try {
+        const resp = await fetch(`${API_URL}/exercises`);
+        if (!resp.ok) throw new Error("Network response was not OK");
+
+        const data = await resp.json();
+
+        setExercises(data);
+      } catch (err) {
+        setError(err.message);
+      } finally {
+        setIsLoading(false);
+      }
+    }
+    fetchData();
+  }, []);
+
+  if (isLoading) {
+    return <p>Fetching data...</p>;
+  }
+
+  const handleWorkout = async (workoutData) => {
+    setError(null);
+    try {
+      const response = await fetch(`${API_URL}/workouts`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(workoutData),
+      });
+
+      if (!response.ok) throw new Error("Failed to logG workout");
+
+      alert("Workout logged successfully!");
+      setSelectedExercise({});
+    } catch (err) {
+      console.log("Error logging workout: ", err);
+      setError(err.message);
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
   };
 
   return (
     <div className="container--default">
       <Header />
       <main>
+        {error && (
+          <div style={{ color: "red", padding: "1rem", background: "#fee" }}>
+            Error: {error}
+          </div>
+        )}
         <Section variant="overview">
           <DisplayCard
             title="Today's workouts"
@@ -47,43 +100,21 @@ function App() {
         <Section variant="todays_workouts">
           <Heading level="2" title="Today's workouts" span="Log new workout" />
           <WorkoutCards>
-            <SelectExercise
-              muscleGroup="Upper Body"
-              options={[
-                "Bench Press",
-                "Pull-Ups / Chin-Ups",
-                "Overhead Press",
-                "Push-Ups",
-                "Bent-Over Barbell Row",
-                "Dips",
-              ]}
-              handleSelect={handleSelectedExercise}
-            />
-            <SelectExercise
-              muscleGroup="Lower Body"
-              options={[
-                "Squats",
-                "Deadlifts",
-                "Lunges",
-                "Hip Thrusts / Glute Bridges",
-                "Good Mornings",
-                "Calf Rises",
-              ]}
-              handleSelect={handleSelectedExercise}
-            />
-            <SelectExercise
-              muscleGroup="Core"
-              options={[
-                "Crunches",
-                "Reverse Crunches",
-                "Russian Twists",
-                "Plank",
-                "Mountain Climbers",
-                "V-Ups",
-              ]}
-              handleSelect={handleSelectedExercise}
-            />
+            {Object.entries(exercises).map(([muscleGroup, options]) => (
+              <SelectExercise
+                key={muscleGroup}
+                muscleGroup={muscleGroup}
+                options={options}
+                handleSelect={handleSelectedExercise}
+              />
+            ))}
           </WorkoutCards>
+        </Section>
+        <Section variant="logWorkout">
+          <AddExercise
+            selectedExercise={selectedExercise}
+            handleWorkout={handleWorkout}
+          />
         </Section>
       </main>
     </div>

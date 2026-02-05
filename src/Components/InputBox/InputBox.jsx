@@ -5,9 +5,10 @@ const InputBox = ({
   value = "",
   onChange,
   type = "text",
-  name,
+  name = "",
   id,
   className = "",
+  placeholder = "",
 }) => {
   const inputClasses = [styles.input, className].filter(Boolean).join(" ");
 
@@ -25,7 +26,7 @@ const InputBox = ({
       name={name}
       id={id}
       value={value}
-      placeholder="Add a task"
+      placeholder={placeholder}
     />
   );
 };

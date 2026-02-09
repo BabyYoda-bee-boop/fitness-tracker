@@ -144,8 +144,6 @@ In a separate terminal, start the React development server:
 npm run dev
 ```
 
-(or `npm start`, depending on your setup)
-
 Then open:
 
 ```

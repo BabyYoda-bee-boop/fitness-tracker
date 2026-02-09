@@ -1,5 +1,19 @@
 @use "../../style/variables" as v;
 
+.exerciseTitle {
+  position: relative;
+
+  &::after {
+    content: "";
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    background-image: url("../../assets/arrowCornerUp.svg");
+    background-size: contain;
+    background-repeat: no-repeat;
+    margin-left: 0.5em;
+  }
+}
 .addExercise {
   margin-block: 1rem;
   margin-inline: 0.5rem;

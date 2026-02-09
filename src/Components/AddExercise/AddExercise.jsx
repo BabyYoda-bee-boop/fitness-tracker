@@ -33,7 +33,7 @@ const AddExercise = ({ selectedExercise, handleWorkout }) => {
 
   return (
     <>
-      <h3>
+      <h3 className={styles.exerciseTitle}>
         {Object.keys(selectedExercise).length > 0
           ? `${Object.values(selectedExercise)[0]}`
           : "Select an exercise"}

@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { Routes, Route, Link } from "react-router-dom";
 import DisplayCard from "./Components/DisplayCard/DisplayCard";
 import fireIcon from "./assets/fireIcon.svg";
 import zigArrowIcon from "./assets/zigArrowIcon.svg";
@@ -9,6 +10,7 @@ import Heading from "./Components/Heading/Heading";
 import WorkoutCards from "./Components/AddWorkoutCard/WorkoutCards";
 import SelectExercise from "./Components/SelectExercise/SelectExercise";
 import AddExercise from "./Components/AddExercise/AddExercise";
+import Button from "./Components/Button/Button";
 
 function App() {
   const [exercises, setExercises] = useState({});
@@ -74,48 +76,72 @@ function App() {
             Error: {error}
           </div>
         )}
-        <Section variant="overview">
-          <DisplayCard
-            title="Today's workouts"
-            details="Keep going!"
-            variant="fire"
-            icon_src={fireIcon}
-            output="TODO 3"
+
+        <Routes>
+          <Route
+            path="/"
+            element={
+              <Section variant="overview">
+                <div className="cards-row">
+                  <DisplayCard
+                    title="Today's workouts"
+                    details="Keep going!"
+                    variant="fire"
+                    icon_src={fireIcon}
+                    output="TODO 3"
+                  />
+                  <DisplayCard
+                    title="Weekly streak"
+                    details="TODO: days in a row!"
+                    variant="zigArrow"
+                    icon_src={zigArrowIcon}
+                    output="TODO 4"
+                  />
+                  <DisplayCard
+                    title="Weekly goal"
+                    details="TODO: days in a row"
+                    variant="bullseye"
+                    icon_src={bullseyeIcon}
+                    output="TODO 75%"
+                  />
+                </div>
+                <Link to="/log-workout" className="overview__link">
+                  Log New Workout!
+                </Link>
+              </Section>
+            }
           />
-          <DisplayCard
-            title="Weekly streak"
-            details="TODO: days in a row!"
-            variant="zigArrow"
-            icon_src={zigArrowIcon}
-            output="TODO 4"
+          <Route
+            path="/log-workout"
+            element={
+              <>
+                <Section variant="todays_workouts">
+                  <Heading
+                    level="2"
+                    title="Today's workouts"
+                    span="Log new workout"
+                  />
+                  <WorkoutCards>
+                    {Object.entries(exercises).map(([muscleGroup, options]) => (
+                      <SelectExercise
+                        key={muscleGroup}
+                        muscleGroup={muscleGroup}
+                        options={options}
+                        handleSelect={handleSelectedExercise}
+                      />
+                    ))}
+                  </WorkoutCards>
+                </Section>
+                <Section variant="logWorkout">
+                  <AddExercise
+                    selectedExercise={selectedExercise}
+                    handleWorkout={handleWorkout}
+                  />
+                </Section>
+              </>
+            }
           />
-          <DisplayCard
-            title="Weekly goal"
-            details="TODO: days in a row"
-            variant="bullseye"
-            icon_src={bullseyeIcon}
-            output="TODO 75%"
-          />
-        </Section>
-        <Section variant="todays_workouts">
-          <Heading level="2" title="Today's workouts" span="Log new workout" />
-          <WorkoutCards>
-            {Object.entries(exercises).map(([muscleGroup, options]) => (
-              <SelectExercise
-                key={muscleGroup}
-                muscleGroup={muscleGroup}
-                options={options}
-                handleSelect={handleSelectedExercise}
-              />
-            ))}
-          </WorkoutCards>
-        </Section>
-        <Section variant="logWorkout">
-          <AddExercise
-            selectedExercise={selectedExercise}
-            handleWorkout={handleWorkout}
-          />
-        </Section>
+        </Routes>
       </main>
     </div>
   );

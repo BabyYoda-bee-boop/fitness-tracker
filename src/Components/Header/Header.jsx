@@ -1,4 +1,5 @@
 import React from "react";
+import { NavLink } from "react-router-dom";
 import styles from "./Header.module.scss";
 import Logo from "../Logo/Logo";
 
@@ -9,16 +10,16 @@ const Header = () => {
         <Logo />
         <ul className={styles.nav__links}>
           <li>
-            <a href="#">Dashboard</a>
+            <NavLink to="/">Dashboard</NavLink>
           </li>
           <li>
-            <a href="#">Log workout</a>
+            <NavLink to="/log-workout">Log workout</NavLink>
           </li>
           <li>
-            <a href="#">My logbook</a>
+            <NavLink to="/logbook">My logbook</NavLink>
           </li>
           <li>
-            <a href="#">My Goals</a>
+            <NavLink to="/goals">My Goals</NavLink>
           </li>
         </ul>
       </nav>

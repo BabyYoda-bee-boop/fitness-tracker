@@ -7,6 +7,7 @@ const Button = ({
   variant = "",
   onClick,
   className,
+  to,
 }) => {
   const buttonClasses = [
     styles.btn,

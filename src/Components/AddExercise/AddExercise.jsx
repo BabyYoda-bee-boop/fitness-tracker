@@ -25,9 +25,9 @@ const AddExercise = ({ selectedExercise, handleWorkout }) => {
       handleWorkout(workoutData);
     }
 
-    setSets(0);
-    setReps(0);
-    setWeight(0);
+    setSets("");
+    setReps("");
+    setWeight("");
     setIsBodyweight(false);
   };
 

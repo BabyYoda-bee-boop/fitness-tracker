@@ -8,13 +8,8 @@
   }
 
   &__overview {
-    @include mixins.flex() {
-      & > * {
-        flex-basis: 20em;
-      }
-      @include mixins.flex($dir: row, $align: stretch) {
-        gap: 2rem;
-      }
-    }
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
   }
 }

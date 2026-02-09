@@ -15,6 +15,13 @@ function App() {
   const [exercises, setExercises] = useState({});
   const [selectedExercise, setSelectedExercise] = useState({});
   const location = useLocation();
+  const [workouts, setWorkouts] = useState([]);
+  const [stats, setStats] = useState({
+    todaysWorkouts: 0,
+    weeklyStreak: 0,
+    weeklyGoal: 0,
+    weeklyGoalProgress: 0,
+  });
 
   const handleSelectedExercise = (muscleGroup, exercise) => {
     setSelectedExercise({ [muscleGroup]: exercise });
@@ -33,7 +40,7 @@ function App() {
     setIsLoading(true);
     setError(null);
 
-    async function fetchData() {
+    async function fetchExercises() {
       try {
         const resp = await fetch(`${API_URL}/exercises`);
         if (!resp.ok) throw new Error("Network response was not OK");
@@ -47,7 +54,31 @@ function App() {
         setIsLoading(false);
       }
     }
-    fetchData();
+    fetchExercises();
+  }, []);
+
+  const calculateStats = (workoutsData) => {
+    const today = new Date().toISOString();
+    const weekAgo = new Date();
+    weekAgo.setDate(weekAgo.getDate() - 7);
+  };
+
+  useEffect(() => {
+    setError(null);
+    async function fetchWorkouts() {
+      try {
+        const resp = await fetch(`${API_URL}/workouts`);
+        if (!resp.ok) throw new Error("Failed to fetch workouts");
+        const data = await resp.json();
+
+        setWorkouts(data);
+        calculateStats(data);
+      } catch (err) {
+        console.error("Error fetching workouts:", err);
+        setError(err.message);
+      }
+    }
+    fetchWorkouts();
   }, []);
 
   if (isLoading) {

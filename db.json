@@ -25,15 +25,5 @@
       "V-Ups"
     ]
   },
-  "workouts": [
-    {
-      "id": "0ae1",
-      "muscleGroup": "Lower Body",
-      "exercise": "Squats",
-      "sets": 3,
-      "reps": 10,
-      "weight": 46,
-      "date": "2026-02-05T21:09:28.897Z"
-    }
-  ]
+  "workouts": []
 }

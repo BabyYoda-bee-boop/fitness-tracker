@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Routes, Route, Link } from "react-router-dom";
+import { Routes, Route, Link, useLocation } from "react-router-dom";
 import DisplayCard from "./Components/DisplayCard/DisplayCard";
 import fireIcon from "./assets/fireIcon.svg";
 import zigArrowIcon from "./assets/zigArrowIcon.svg";
@@ -10,17 +10,24 @@ import Heading from "./Components/Heading/Heading";
 import WorkoutCards from "./Components/AddWorkoutCard/WorkoutCards";
 import SelectExercise from "./Components/SelectExercise/SelectExercise";
 import AddExercise from "./Components/AddExercise/AddExercise";
-import Button from "./Components/Button/Button";
 
 function App() {
   const [exercises, setExercises] = useState({});
   const [selectedExercise, setSelectedExercise] = useState({});
+  const location = useLocation();
+
   const handleSelectedExercise = (muscleGroup, exercise) => {
     setSelectedExercise({ [muscleGroup]: exercise });
   };
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(null);
   const API_URL = "http://localhost:3000";
+
+  useEffect(() => {
+    if (location.pathname === "/log-workout") {
+      setSelectedExercise({});
+    }
+  }, [location.pathname]);
 
   useEffect(() => {
     setIsLoading(true);

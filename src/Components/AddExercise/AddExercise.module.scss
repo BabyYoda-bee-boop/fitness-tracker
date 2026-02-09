@@ -3,7 +3,7 @@
 .exerciseTitle {
   position: relative;
 
-  &::after {
+  &.noSelection::after {
     content: "";
     display: inline-block;
     width: 20px;

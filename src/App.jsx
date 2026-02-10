@@ -50,6 +50,7 @@ function App() {
         setExercises(data);
       } catch (err) {
         setError(err.message);
+        window.scrollTo({ top: 0, behavior: "smooth" });
       } finally {
         setIsLoading(false);
       }
@@ -76,6 +77,7 @@ function App() {
       } catch (err) {
         console.error("Error fetching workouts:", err);
         setError(err.message);
+        window.scrollTo({ top: 0, behavior: "smooth" });
       }
     }
     fetchWorkouts();

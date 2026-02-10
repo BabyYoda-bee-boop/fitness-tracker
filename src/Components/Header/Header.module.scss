@@ -1,8 +1,10 @@
 @use "../../style/variables" as v;
 @use "../../style/mixins" as *;
+@use "sass:color";
 
 .header {
   margin-block: 1rem;
+  position: relative;
 
   nav {
     @include flex() {
@@ -29,6 +31,35 @@
 
     li {
       list-style: none;
+
+      a {
+        display: block;
+        width: 100%;
+        height: 100%;
+        padding: 1rem;
+        text-align: center;
+      }
+    }
+
+    @media (max-width: 45em) {
+      display: none;
+      position: fixed;
+      top: 0;
+      right: 0;
+      width: 40%;
+      height: 100%;
+      background-color: color.adjust(v.$clr-bg, $lightness: 6%);
+      flex-direction: column;
+      gap: 1rem;
+      justify-content: flex-start;
+      align-items: stretch;
+      z-index: 999;
+      padding: 2rem 1rem;
+      padding-top: 4.5rem;
+    }
+
+    &--open {
+      display: flex;
     }
   }
 }

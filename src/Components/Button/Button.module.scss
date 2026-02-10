@@ -13,6 +13,21 @@
   letter-spacing: 0.6px;
   border: 1px solid color.adjust(v.$clr-accent, $alpha: 0.1);
 
+  &--menu {
+    display: none;
+
+    @media (max-width: 45em) {
+      display: block;
+      z-index: 1000;
+    }
+  }
+
+  &--menuOpen {
+    position: fixed;
+    top: 1rem;
+    right: 1.5rem;
+    z-index: 1000;
+  }
   &:hover {
     cursor: pointer;
   }

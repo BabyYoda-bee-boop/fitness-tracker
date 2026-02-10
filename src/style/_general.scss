@@ -28,24 +28,6 @@ h6 {
   width: 1px;
 }
 
-.cards-row {
-  display: flex;
-  gap: 2rem;
-
-  & > * {
-    flex: 1 1 20em;
-    min-width: 0;
-  }
-}
-.overview__link {
-  color: inherit;
-  padding: 0.6em;
-  border: 2px solid grey;
-  border-radius: calc($radius-regular * 2);
-  text-decoration: none;
-  align-self: flex-start;
-}
-
 body {
   font-family: $ff-primary;
   background-color: $clr-bg;
@@ -57,4 +39,28 @@ body {
   .flex {
     @include mixins.flex;
   }
+}
+
+//Helpers:
+.cards-row {
+  display: flex;
+  gap: 2rem;
+
+  & > * {
+    flex: 1 1 20em;
+    min-width: 0;
+  }
+
+  @media (max-width: 45em) {
+    flex-direction: column;
+    max-width: 25em;
+  }
+}
+.overview__link {
+  color: inherit;
+  padding: 0.6em;
+  border: 2px solid grey;
+  border-radius: calc($radius-regular * 2);
+  text-decoration: none;
+  align-self: flex-start;
 }

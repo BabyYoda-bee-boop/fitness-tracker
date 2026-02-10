@@ -1,14 +1,30 @@
-import React from "react";
+import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
 import styles from "./Header.module.scss";
 import Logo from "../Logo/Logo";
+import Button from "../Button/Button";
+import menuIcon from "../../assets/menu.svg";
 
 const Header = () => {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  const toggleMenu = () => setIsMenuOpen((prev) => !prev);
+
   return (
     <header className={styles.header}>
       <nav aria-label="Main navigation">
         <Logo />
-        <ul className={styles.nav__links}>
+        <Button
+          type="button"
+          variant={`${isMenuOpen ? "menuOpen" : "menu"}`}
+          onClick={toggleMenu}
+        >
+          <span className="visually-hidden">Menu</span>
+          <img src={menuIcon} alt="" />
+        </Button>
+        <ul
+          className={`${styles.nav__links} ${isMenuOpen ? styles["nav__links--open"] : ""}`}
+        >
           <li>
             <NavLink to="/">Dashboard</NavLink>
           </li>

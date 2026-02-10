@@ -3,6 +3,8 @@
 
 .section {
   margin-block: 2rem;
+  margin-inline: auto;
+  align-items: center;
   &:first-of-type {
     margin-top: 0;
   }

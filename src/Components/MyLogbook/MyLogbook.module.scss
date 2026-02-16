@@ -1,0 +1,29 @@
+@use "../../style/variables" as v;
+@use "sass:color";
+
+.logbook {
+  &__title {
+    font-size: v.$fs-700;
+    color: v.$clr-accent;
+    margin-bottom: 2rem;
+  }
+  &__dateGroup {
+    border: 2px solid v.$clr-accent;
+    border-radius: v.$radius-regular;
+    padding: 1rem;
+  }
+  &__date {
+    color: v.$clr-heading2;
+    font-style: italic;
+  }
+  &__exercises {
+    &-title {
+      font-variant: small-caps;
+      font-size: v.$fs-600;
+      letter-spacing: 3px;
+    }
+  }
+  &__exercises:not(:last-child) {
+    border-bottom: 1px dashed color.adjust(v.$clr-accent, $alpha: -0.4);
+  }
+}

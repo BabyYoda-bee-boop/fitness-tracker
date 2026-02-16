@@ -1,4 +1,5 @@
 @use "../../style/variables" as v;
+@use "sass:color";
 
 .input {
   color: v.$clr-text;
@@ -9,6 +10,7 @@
   padding: 1em;
   min-width: 8ch;
   &::placeholder {
-    color: v.$clr-text;
+    color: color.adjust(v.$clr-text, $alpha: -0.8);
+    font-style: italic;
   }
 }

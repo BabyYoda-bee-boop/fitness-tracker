@@ -19,16 +19,17 @@ const MyLogbook = ({ workouts }) => {
       {Object.entries(groupedByDay).map(([date, exercises]) => (
         <div key={date} className={styles.logbook__dateGroup}>
           <h3 className={styles.logbook__date}>{date}</h3>
-          <div className={styles.logbook__exercises}>
-            {exercises.map((exercise) => (
-              <div key={exercise.id}>
-                <p>{exercise.exercise}</p>
-                <p>Sets: {exercise.sets}</p>
-                <p>Reps: {exercise.reps}</p>
-                <p>Weight: {exercise.weight}</p>
-              </div>
-            ))}
-          </div>
+
+          {exercises.map((exercise) => (
+            <div className={styles.logbook__exercises} key={exercise.id}>
+              <p className={styles["logbook__exercises-title"]}>
+                {exercise.exercise}
+              </p>
+              <p>Sets: {exercise.sets}</p>
+              <p>Reps: {exercise.reps}</p>
+              <p>Weight: {exercise.weight} kg</p>
+            </div>
+          ))}
         </div>
       ))}
     </div>

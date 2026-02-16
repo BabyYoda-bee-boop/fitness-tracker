@@ -192,7 +192,14 @@ function App() {
               </>
             }
           />
-          <Route path="/logbook" element={<MyLogbook workouts={workouts} />} />
+          <Route
+            path="/logbook"
+            element={
+              <Section variant="logbook">
+                <MyLogbook workouts={workouts} />
+              </Section>
+            }
+          />
         </Routes>
       </main>
     </div>

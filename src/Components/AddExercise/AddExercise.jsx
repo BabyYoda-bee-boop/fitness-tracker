@@ -80,7 +80,7 @@ const AddExercise = ({ selectedExercise, handleWorkout }) => {
                     step={2.5}
                     id="weight"
                     name="weight"
-                    placeholder="Weight"
+                    placeholder="Weight [kg]"
                     value={weight}
                     onChange={(e) => setWeight(e)}
                     required={!isBodyweight}

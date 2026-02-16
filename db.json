@@ -25,5 +25,24 @@
       "V-Ups"
     ]
   },
-  "workouts": []
+  "workouts": [
+    {
+      "id": "aec9",
+      "muscleGroup": "Lower Body",
+      "exercise": "Deadlifts",
+      "sets": 0,
+      "reps": 0,
+      "weight": 40,
+      "date": "2026-02-16T15:46:37.021Z"
+    },
+    {
+      "id": "ba65",
+      "muscleGroup": "Core",
+      "exercise": "Russian Twists",
+      "sets": 3,
+      "reps": 20,
+      "weight": 15,
+      "date": "2026-02-16T16:09:32.248Z"
+    }
+  ]
 }

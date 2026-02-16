@@ -10,6 +10,7 @@ import Heading from "./Components/Heading/Heading";
 import WorkoutCards from "./Components/AddWorkoutCard/WorkoutCards";
 import SelectExercise from "./Components/SelectExercise/SelectExercise";
 import AddExercise from "./Components/AddExercise/AddExercise";
+import MyLogbook from "./Components/MyLogbook/MyLogbook";
 
 function App() {
   const [exercises, setExercises] = useState({});
@@ -62,6 +63,15 @@ function App() {
     const today = new Date().toISOString();
     const weekAgo = new Date();
     weekAgo.setDate(weekAgo.getDate() - 7);
+
+    const todaysWorkouts = workoutsData.filter(
+      (wo) => new Date(wo).toDateString() === today,
+    ).length;
+
+    setStats((prev) => ({
+      ...prev,
+      todaysWorkouts,
+    }));
   };
 
   useEffect(() => {
@@ -99,6 +109,7 @@ function App() {
       if (!response.ok) throw new Error("Failed to logG workout");
 
       alert("Workout logged successfully!");
+      setWorkouts((prev) => [...prev, workoutData]);
       setSelectedExercise({});
     } catch (err) {
       console.log("Error logging workout: ", err);
@@ -128,7 +139,7 @@ function App() {
                     details="Keep going!"
                     variant="fire"
                     icon_src={fireIcon}
-                    output="TODO 3"
+                    output={stats.todaysWorkouts}
                   />
                   <DisplayCard
                     title="Weekly streak"
@@ -181,6 +192,7 @@ function App() {
               </>
             }
           />
+          <Route path="/logbook" element={<MyLogbook workouts={workouts} />} />
         </Routes>
       </main>
     </div>

@@ -77,7 +77,7 @@ const AddExercise = ({ selectedExercise, handleWorkout }) => {
                   </label>
                   <InputBox
                     type="number"
-                    step={2.5}
+                    step={0.25}
                     id="weight"
                     name="weight"
                     placeholder="Weight [kg]"

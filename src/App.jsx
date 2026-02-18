@@ -11,6 +11,7 @@ import WorkoutCards from "./Components/AddWorkoutCard/WorkoutCards";
 import SelectExercise from "./Components/SelectExercise/SelectExercise";
 import AddExercise from "./Components/AddExercise/AddExercise";
 import MyLogbook from "./Components/MyLogbook/MyLogbook";
+import { mockExercises, mockWorkouts } from "./mockData";
 
 function App() {
   const [exercises, setExercises] = useState({});
@@ -41,22 +42,25 @@ function App() {
     setIsLoading(true);
     setError(null);
 
-    async function fetchExercises() {
-      try {
-        const resp = await fetch(`${API_URL}/exercises`);
-        if (!resp.ok) throw new Error("Network response was not OK");
+    // async function fetchExercises() {
+    //   try {
+    //     const resp = await fetch(`${API_URL}/exercises`);
+    //     if (!resp.ok) throw new Error("Network response was not OK");
 
-        const data = await resp.json();
+    //     const data = await resp.json();
 
-        setExercises(data);
-      } catch (err) {
-        setError(err.message);
-        window.scrollTo({ top: 0, behavior: "smooth" });
-      } finally {
-        setIsLoading(false);
-      }
-    }
-    fetchExercises();
+    //     setExercises(data);
+    //   } catch (err) {
+    //     setError(err.message);
+    //     window.scrollTo({ top: 0, behavior: "smooth" });
+    //   } finally {
+    //     setIsLoading(false);
+    //   }
+    // }
+    // fetchExercises();
+
+    setExercises(mockExercises);
+    setIsLoading(false);
   }, []);
 
   const calculateStats = (workoutsData) => {
@@ -76,46 +80,55 @@ function App() {
 
   useEffect(() => {
     setError(null);
-    async function fetchWorkouts() {
-      try {
-        const resp = await fetch(`${API_URL}/workouts`);
-        if (!resp.ok) throw new Error("Failed to fetch workouts");
-        const data = await resp.json();
+    // async function fetchWorkouts() {
+    //   try {
+    //     const resp = await fetch(`${API_URL}/workouts`);
+    //     if (!resp.ok) throw new Error("Failed to fetch workouts");
+    //     const data = await resp.json();
 
-        setWorkouts(data);
-        calculateStats(data);
-      } catch (err) {
-        console.error("Error fetching workouts:", err);
-        setError(err.message);
-        window.scrollTo({ top: 0, behavior: "smooth" });
-      }
-    }
-    fetchWorkouts();
+    //     setWorkouts(data);
+    //     calculateStats(data);
+    //   } catch (err) {
+    //     console.error("Error fetching workouts:", err);
+    //     setError(err.message);
+    //     window.scrollTo({ top: 0, behavior: "smooth" });
+    //   }
+    // }
+    // fetchWorkouts();
+
+    setWorkouts(mockWorkouts);
+    calculateStats(mockWorkouts);
   }, []);
 
   if (isLoading) {
     return <p>Fetching data...</p>;
   }
 
-  const handleWorkout = async (workoutData) => {
-    setError(null);
-    try {
-      const response = await fetch(`${API_URL}/workouts`, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(workoutData),
-      });
+  // const handleWorkout = async (workoutData) => {
+  //   setError(null);
+  //   try {
+  //     const response = await fetch(`${API_URL}/workouts`, {
+  //       method: "POST",
+  //       headers: { "Content-Type": "application/json" },
+  //       body: JSON.stringify(workoutData),
+  //     });
 
-      if (!response.ok) throw new Error("Failed to logG workout");
+  //     if (!response.ok) throw new Error("Failed to logG workout");
 
-      alert("Workout logged successfully!");
-      setWorkouts((prev) => [...prev, workoutData]);
-      setSelectedExercise({});
-    } catch (err) {
-      console.log("Error logging workout: ", err);
-      setError(err.message);
-      window.scrollTo({ top: 0, behavior: "smooth" });
-    }
+  //     alert("Workout logged successfully!");
+  //     setWorkouts((prev) => [...prev, workoutData]);
+  //     setSelectedExercise({});
+  //   } catch (err) {
+  //     console.log("Error logging workout: ", err);
+  //     setError(err.message);
+  //     window.scrollTo({ top: 0, behavior: "smooth" });
+  //   }
+  // };
+
+  const handleWorkout = (workoutData) => {
+    setWorkouts((prev) => [...prev, workoutData]);
+    alert("Workout logged! (demo mode)");
+    setSelectedExercise({});
   };
 
   return (

@@ -26,16 +26,24 @@ const Header = () => {
           className={`${styles.nav__links} ${isMenuOpen ? styles["nav__links--open"] : ""}`}
         >
           <li>
-            <NavLink to="/">Dashboard</NavLink>
+            <NavLink to="/" onClick={() => setIsMenuOpen(false)}>
+              Dashboard
+            </NavLink>
           </li>
           <li>
-            <NavLink to="/log-workout">Log workout</NavLink>
+            <NavLink to="/log-workout" onClick={() => setIsMenuOpen(false)}>
+              Log workout
+            </NavLink>
           </li>
           <li>
-            <NavLink to="/logbook">My logbook</NavLink>
+            <NavLink to="/logbook" onClick={() => setIsMenuOpen(false)}>
+              My logbook
+            </NavLink>
           </li>
           <li>
-            <NavLink to="/goals">My Goals</NavLink>
+            <NavLink to="/goals" onClick={() => setIsMenuOpen(false)}>
+              My Goals
+            </NavLink>
           </li>
         </ul>
       </nav>

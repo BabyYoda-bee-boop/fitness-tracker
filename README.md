@@ -187,7 +187,7 @@ src/
 ## 🎬 Demo App
 
 [Click here](https://babyyoda-bee-boop.github.io/fitness-tracker/) to access demo site - it was configured to run without a server, so you can test the app's behaviour and see it's layout.
-The data is being stored locally in the app instead of using actual POST and GET methods with server (which you can also test by following the instructions in the beginning of this README file and cloning the repository and running the server-json locally on your computer).
+The data is being stored locally in the app instead of using actual POST and GET methods with server (which you can also test by following the instructions in the beginning of this README file and cloning the repository and running the json-server locally on your computer).
 
 ---
 

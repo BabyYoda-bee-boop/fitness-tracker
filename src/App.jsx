@@ -129,6 +129,7 @@ function App() {
     setWorkouts((prev) => [...prev, workoutData]);
     alert("Workout logged! (demo mode)");
     setSelectedExercise({});
+    setStats((prev) => ({ ...prev, todaysWorkouts: prev.todaysWorkouts + 1 }));
   };
 
   return (
